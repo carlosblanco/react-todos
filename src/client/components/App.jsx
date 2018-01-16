@@ -71,9 +71,9 @@ class App extends Component {
                 </form>
             </div>
 
-                {this.state.todos.map(i => <div className="row" key={i._id}>
-                    <Todo todo={i} className="column"/>
-                    <button onClick={() => this.delete(i)} className="button button-small float-right">delete</button>
+                {this.state.todos.map(i => <div className="row todo-row" key={i._id}>
+                    <Todo todo={i} />
+                    <button onClick={() => this.delete(i)} className="button button-small column">delete</button>
                 </div>)}
 
         </div>;

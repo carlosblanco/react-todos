@@ -34,7 +34,7 @@ class Todo extends Component {
 
     render() {
         const completed = (this.state.completed) ? 'completed' : '';
-        return <span className="todo-row">
+        return <span className="column">
             <input type="checkbox" defaultChecked={this.state.completed} onChange={this.toggleChange} className="todo-checkbox"/>
             <span className={completed + " todo-title"}>{this.state.title}</span>
         </span>
