@@ -77,4 +77,4 @@ app.delete('/todos/:id', (req, res) => {
 
 
 app.use(express.static(__dirname +'./../../')); //serves the index.html
-app.listen(3000, () => console.log('todos app listening on port 3000.'));
+app.listen(process.env.PORT || 3000, () => console.log('todos app listening on port 3000.'));
