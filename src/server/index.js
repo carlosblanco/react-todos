@@ -8,7 +8,7 @@ const app = express();
 app.use(morgan('combined'));
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://localhost/todos');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/todos');
 mongoose.Promise = global.Promise;
 
 const db = mongoose.connection;
