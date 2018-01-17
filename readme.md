@@ -5,5 +5,5 @@
 Written using Express, Mongoose, React and Webpack.
 
 
-![Demo](/todos.gif)
+![Demo](https://raw.githubusercontent.com/carlosblanco/react-todos/master/todos.gif)
 
