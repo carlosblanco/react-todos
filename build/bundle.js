@@ -8361,11 +8361,14 @@ var Todo = function (_Component) {
                     },
                     body: JSON.stringify(_this.state)
                 }).then(function (res) {
+                    console.log(res);
                     if (res.ok) {
-                        res.json();
+                        return res.json();
+                    } else {
+                        Promise.reject(new Error('HTTP Error ' + res.status));
                     }
                 }).then(function (res) {
-                    return _this.setState(res);
+                    _this.setState(res);
                 });
             });
         };
@@ -8381,8 +8384,8 @@ var Todo = function (_Component) {
             var completed = this.state.completed ? 'completed' : '';
             return _react2.default.createElement(
                 'span',
-                { className: 'column' },
-                _react2.default.createElement('input', { type: 'checkbox', defaultChecked: this.state.completed, onChange: this.toggleChange, className: 'todo-checkbox' }),
+                { className: 'column', onClick: this.toggleChange },
+                _react2.default.createElement('input', { type: 'checkbox', checked: this.state.completed, className: 'todo-checkbox' }),
                 _react2.default.createElement(
                     'span',
                     { className: completed + " todo-title" },

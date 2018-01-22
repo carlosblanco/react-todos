@@ -24,19 +24,24 @@ class Todo extends Component {
                 body: JSON.stringify(this.state)
             })
                 .then(res => {
+                    console.log(res);
                     if (res.ok) {
-                        res.json()
+                        return res.json();
+                    }else{
+                        Promise.reject(new Error(`HTTP Error ${res.status}`));
                     }
                 })
-                .then(res => this.setState(res));
+                .then(res => {
+                    this.setState(res);
+                });
         });
     }
 
     render() {
         const completed = (this.state.completed) ? 'completed' : '';
-        return <span className="column">
-            <input type="checkbox" defaultChecked={this.state.completed} onChange={this.toggleChange} className="todo-checkbox"/>
-            <span className={completed + " todo-title"}>{this.state.title}</span>
+        return <span className="column" onClick={this.toggleChange}>
+            <input type="checkbox" checked={this.state.completed}  className="todo-checkbox"/>
+            <span className={completed + " todo-title"} >{this.state.title}</span>
         </span>
     }
 }
